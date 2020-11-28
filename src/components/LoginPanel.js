@@ -6,7 +6,6 @@ import axios from "axios";
 const LoginPanel = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, e) => {
-        console.log(data);
         axios.post('http://142.93.110.208/authenticate', data)
             .then(response => window.sessionStorage.setItem('jwt', response.data.data.jwt))
         e.target.reset();
@@ -14,7 +13,6 @@ const LoginPanel = () => {
 
 
     return (
-
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group row">
                 <label htmlFor="inputUsername" className="col-sm-2 col-form-label">Username</label>

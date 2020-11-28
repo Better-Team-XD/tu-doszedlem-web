@@ -3,10 +3,14 @@ import axios from "axios";
 
 
 
-const LoginPanel = ({ apiKey }) => {
+const LoginPanel = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {console.log(data); axios.post('http://142.93.110.208/authenticate', data)
-        .then(response => console.log(response.data));}
+    const onSubmit = (data, e) => {
+        console.log(data);
+        axios.post('http://142.93.110.208/authenticate', data)
+            .then(response => window.sessionStorage.setItem('jwt', response.data.data.jwt))
+        e.target.reset();
+    };
 
 
     return (

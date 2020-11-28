@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import MapContainer from './components/MapContainer';
 import Locations from './components/Locations';
 import axios from 'axios'
+import LoginPanel from "./components/LoginPanel";
 
 function App() {
   const [locations, setLocations] = useState([]);
@@ -33,6 +34,7 @@ function App() {
         <MapContainer apiKey={api_key} />
         <br/>
         <Locations locations={locations} />
+        <LoginPanel />
       </div>
     </div>
   );
